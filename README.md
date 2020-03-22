@@ -15,9 +15,12 @@ gradle cleanTest test -Dusername=<your-login> -Dpassword=<your-password>
 ```
  
 ### Видео
-[Демонстрация запуска теста](https://youtu.be/bdSszbE_LzU)
+[Демонстрация запуска теста](https://youtu.be/4TRr84I7TaY)
 
-### Что использовано
+### Примечания
+В тесте используется 2 типа селекторов: css и selenide
+
+### Конфигурация
 - java 1.8
 - senelide 5.10.0
 - testng 7.1.0
