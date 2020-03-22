@@ -23,19 +23,26 @@ public class QATask {
     }
 
     @Test public void widgetCreateRenameDelete() {
+        // логин в личный кабинет
         open("https://login.sendpulse.com/login/");
         $("#login").val(username).pressTab();
         $("#password").val(password).pressEnter();
 
+        // переход в раздел чат-ботов
         $(by("href","/messengers/")).click();
 
+        // переход в подраздел "Виджеты подписки"
         $(byText("Виджеты подписки")).click();
 
+        // создать виджет
         $(by("href","/messengers/widgets/new/")).click();
         $(".edit-mode").$(byText("Далее")).click();
         $(byText("Сохранить и получить код")).click();
         $(byText("Готово")).click();
 
+        // assert создания
+        // зайти в виджет, переименовать, сохранить
+        // assert переименования
         $(withText("Плавающая")).should(exist).click();
         Random random = new Random();
         int num = random.nextInt(10);
@@ -45,6 +52,7 @@ public class QATask {
         $(byText("Готово")).click();
         $("a.ng-binding").shouldHave(text(a));
 
+        // удалить виджет
         $(".dropdown.pull-right").click();
         $(byText("Удалить")).click();
         $(byText("Удалить")).click();
